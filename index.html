@@ -43,13 +43,13 @@
 <body>
 	<div id="gameContainer">
 		<canvas id="unity-canvas" width="960" height="600" data-pixel-art=""></canvas>
-		<script src="Build/Brotli.loader.js"></script>
+		<script src="Build/GZip.loader.js"></script>
 		<script>
 			var canvas = document.querySelector("#unity-canvas");
 			var config = {
-				dataUrl: "Build/Brotli.data.br",
-				frameworkUrl: "Build/Brotli.framework.js.br",
-				codeUrl: "Build/Brotli.wasm.br",
+				dataUrl: "Build/GZip.data.unityweb",
+				frameworkUrl: "Build/GZip.framework.js.unityweb",
+				codeUrl: "Build/GZip.wasm.unityweb",
 				streamingAssetsUrl: "StreamingAssets",
 				companyName: "DefaultCompany",
 				productName: "ProjectFiles",

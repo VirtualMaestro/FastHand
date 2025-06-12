@@ -5,19 +5,32 @@
       "headers": [
         {
           "key": "Cross-Origin-Embedder-Policy",
-          "value": "require-corp"
+          "value": "credentialless"
         },
         {
           "key": "Cross-Origin-Opener-Policy", 
           "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
         }
       ]
     },
     {
-      "source": "/(.*).data",
+      "source": "/index.html",
       "headers": [
         {
-          "key": "Content-Type",
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).unityweb",
+      "headers": [
+        {
+          "key": "Content-Type", 
           "value": "application/octet-stream"
         }
       ]
@@ -36,19 +49,6 @@
       ]
     },
     {
-      "source": "/(.*).data.br",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/octet-stream"  
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "br"
-        }
-      ]
-    },
-    {
       "source": "/(.*).js.gz",
       "headers": [
         {
@@ -58,28 +58,6 @@
         {
           "key": "Content-Encoding", 
           "value": "gzip"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).js.br",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "br"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).wasm",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/wasm"
         }
       ]
     },
@@ -97,28 +75,6 @@
       ]
     },
     {
-      "source": "/(.*).wasm.br",
-      "headers": [
-        {
-          "key": "Content-Type", 
-          "value": "application/wasm"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "br"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).symbols.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/octet-stream"
-        }
-      ]
-    },
-    {
       "source": "/(.*).symbols.json.gz",
       "headers": [
         {
@@ -132,23 +88,45 @@
       ]
     },
     {
-      "source": "/(.*).symbols.json.br", 
+      "source": "/(.*).data",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/octet-stream"
-        },
+        }
+      ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
         {
-          "key": "Content-Encoding",
-          "value": "br"
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).wasm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).symbols.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
         }
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+  "functions": {
+    "app/api/*.js": {
+      "maxDuration": 10
     }
-  ]
+  }
 }
