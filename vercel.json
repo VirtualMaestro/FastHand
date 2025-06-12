@@ -10,10 +10,6 @@
         {
           "key": "Cross-Origin-Opener-Policy", 
           "value": "same-origin"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000"
         }
       ]
     },
@@ -32,67 +28,23 @@
         {
           "key": "Content-Type", 
           "value": "application/octet-stream"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).data.gz",
-      "headers": [
-        {
-          "key": "Content-Type", 
-          "value": "application/octet-stream"
         },
         {
-          "key": "Content-Encoding",
-          "value": "gzip"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
         }
       ]
     },
     {
-      "source": "/(.*).js.gz",
+      "source": "/GZip.loader.js",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/javascript"
         },
         {
-          "key": "Content-Encoding", 
-          "value": "gzip"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).wasm.gz", 
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/wasm"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "gzip"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).symbols.json.gz",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/octet-stream"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "gzip"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).data",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/octet-stream"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
         }
       ]
     },
@@ -104,29 +56,6 @@
           "value": "application/javascript"
         }
       ]
-    },
-    {
-      "source": "/(.*).wasm",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/wasm"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).symbols.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/octet-stream"
-        }
-      ]
     }
-  ],
-  "functions": {
-    "app/api/*.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
